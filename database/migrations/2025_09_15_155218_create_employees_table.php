@@ -20,6 +20,9 @@ return new class extends Migration
             $table->text('alamat');
             $table->date('tanggal_masuk');
             $table->enum('status', ['aktif', 'nonaktif'])->default('aktif');
+
+            $table->foreignId('departemen_id')->constrained('departments')->onDelete('cascade');
+            
             $table->timestamps();
     });
     }
